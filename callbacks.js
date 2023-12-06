@@ -30,3 +30,33 @@ phoneCall(1, normalAnswer);
 phoneCall(2, grannysAnswer);
 phoneCall(3, (id, time) => console.log(id + ") 📞 Che vuoi?!? " + time / 1000 + "s"));
 // phoneCall();
+
+// callback in array methods
+const arr = [20, 30, 50, 100];
+
+const forEach = callback => {
+  for (let i = 0; i < arr.length; i++) {
+    const element = arr[i];
+
+    callback(element);
+  }
+};
+
+arr.forEach(element => console.log("il numero è: " + element));
+
+const filter = callback => {
+  const filteredArr = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    const element = arr[i];
+
+    if (callback(element)) {
+      filteredArr.push(element);
+    }
+  }
+
+  return filteredArr;
+};
+
+const filteredElements = arr.filter(element => element > 30);
+console.log(filteredElements);
